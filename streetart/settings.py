@@ -37,6 +37,15 @@ SECRET_KEY = 'p^$ixmnw_z%whh(e_k=5z)41^_$vx44!n+u)070p25$dj9@c&n'
 
 ALLOWED_HOSTS = ['localhost', 'live.mysite.com']
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
+LOGIN_REDIRECT_URL = '/api/'
 
 # Application definition
 
@@ -47,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'imageupload',
 )
 
